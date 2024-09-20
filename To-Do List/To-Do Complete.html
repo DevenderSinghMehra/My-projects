@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script defer>
+        const textArea = document.querySelectorAll('textarea')
+const checkBox = document.querySelectorAll('.checkbox')
+const loadingBar = document.querySelector('.progressBarLoading')
+const loadingBarText = document.querySelector('.insideLoadingText')
+const motivationalText = document.querySelector(".motivationalText")
+const errorText = document.querySelector(".errorText")
+
+textArea[0].addEventListener('keydown', (e) => {
+    e.target.maxLength = '100';
+    const textInput = textArea[0].value;
+    textArea[0].innerText = `${textInput}`
+    if (e.target.value != '') {
+        if (e.key == 'Enter') {
+            e.target.readOnly = 'true';
+            textArea[0].style.fontWeight = '500';
+            checkBox[0].style.border = '3px solid #61481C';
+            if (textArea[0].style.fontWeight == '500' && textArea[1].style.fontWeight == '500' && textArea[2].style.fontWeight == '500') {
+                errorText.style.cssText = `visibility: hidden;`
+            }
+        }
+    }
+})
+textArea[1].addEventListener('keydown', (e) => {
+    e.target.maxLength = '100';
+    const textInput = textArea[1].value;
+    textArea[1].innerText = `${textInput}`
+    if (e.target.value != '') {
+        if (e.key == 'Enter') {
+            e.target.readOnly = 'true';
+            textArea[1].style.fontWeight = '500';
+            checkBox[1].style.border = '3px solid #61481C';
+            if (textArea[0].style.fontWeight == '500' && textArea[1].style.fontWeight == '500' && textArea[2].style.fontWeight == '500') {
+                errorText.style.cssText = `visibility: hidden;`
+            }
+        }
+    }
+})
+textArea[2].addEventListener('keydown', (e) => {
+    e.target.maxLength = '100';
+    const textInput = textArea[2].value;
+    textArea[2].innerText = `${textInput}`
+    if (e.target.value != '') {
+        if (e.key == 'Enter') {
+            e.target.readOnly = 'true';
+            textArea[2].style.fontWeight = '500';
+            checkBox[2].style.border = '3px solid #61481C';
+            if (textArea[0].style.fontWeight == '500' && textArea[1].style.fontWeight == '500' && textArea[2].style.fontWeight == '500') {
+                errorText.style.cssText = `visibility: hidden;`
+            }
+        }
+    }
+})
+// ---------------------------------------------------
+textArea[0].addEventListener('focus', () => {
+    checkBox[0].checked = false
+})
+textArea[1].addEventListener('focus', () => {
+    checkBox[1].checked = false
+})
+textArea[2].addEventListener('focus', () => {
+    checkBox[2].checked = false
+})
+
+checkBox[0].addEventListener('click', () => {
+    if (textArea[0].style.fontWeight == '500' && textArea[1].style.fontWeight == '500' && textArea[2].style.fontWeight == '500') {
+
+        if (checkBox[0].checked == false) {
+            console.log('false')
+            textArea[0].style.cssText = `font-weight:500;`
+            checkBox[0].style.cssText = `border:3px solid #61481C;`
+            if (checkBox[1].checked == false) {
+                if (checkBox[2].checked == false) {
+                    loadingBar.style.cssText = `animation: progress1Backwards 0.4s linear 0s forwards;`
+                    loadingBarText.style.cssText = `animation:text0-100reverse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-out(false)
+                }
+                else {
+                    loadingBar.style.cssText = `animation: progress2Backwards 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '1/3 Completed'
+                    loadingBarText.style.cssText = `animation:text0-100ForOneDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                    motivationalText.innerText = 'Raise the bar by completing your goals!'
+                }
+            }
+            else if (checkBox[2].checked == false) {
+                loadingBar.style.cssText = `animation: progress2Backwards 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '1/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForOneDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.innerText = 'Raise the bar by completing your goals!'
+            }
+
+            else {
+                loadingBar.style.cssText = `animation: progress3Backwards 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '2/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForOneDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.innerText = 'Just a step away, keep going!'
+            }
+
+
+        }
+
+        else if (checkBox[0].checked == true) {
+            console.log('true')
+            textArea[0].style.cssText = `text-decoration: line-through 1px solid #48A300; color:#48A300; font-weight:500;`
+            checkBox[0].style.border = ''
+            checkBox[0].checked = true
+            if (checkBox[1].checked == true) {
+                if (checkBox[2].checked == true) {
+                    loadingBar.style.cssText = `animation: progress66-100 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '3/3 Completed Finished!'
+                    loadingBarText.style.cssText = `animation:text0-100ForOneDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.innerText = 'Missions completed.'
+
+
+                }
+                else {
+                    loadingBar.style.cssText = `animation: progress33-66 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '2/3 Completed'
+                    loadingBarText.style.cssText = `animation:text0-100ForOneDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.innerText = 'Just a step away, keep going!'
+
+
+                }
+            }
+            else if (checkBox[2].checked == true) {
+                loadingBar.style.cssText = `animation: progress33-66 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '2/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForOneDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                motivationalText.innerText = 'Just a step away, keep going!'
+            }
+
+            else {
+                loadingBar.style.cssText = `animation: progress0-33 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '1/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForOneDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+
+            }
+
+
+        }
+    }
+}
+
+)
+checkBox[1].addEventListener('click', () => {
+    if (textArea[0].style.fontWeight == '500' && textArea[1].style.fontWeight == '500' && textArea[2].style.fontWeight == '500') {
+
+        if (checkBox[1].checked == false) {
+            console.log('false')
+            textArea[1].style.cssText = `font-weight:500;`
+            checkBox[1].style.cssText = `border:3px solid #61481C;`
+            if (checkBox[0].checked == false) {
+                if (checkBox[2].checked == false) {
+                    loadingBar.style.cssText = `animation: progress1Backwards 0.4s linear 0s forwards;`
+                    loadingBarText.style.cssText = `animation:text0-100reverse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-out(false)
+
+
+                }
+                else {
+                    loadingBar.style.cssText = `animation: progress2Backwards 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '1/3 Completed'
+                    loadingBarText.style.cssText = `animation:text0-100ForTwoDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                    motivationalText.innerText = 'Raise the bar by completing your goals!'
+                }
+            }
+            else if (checkBox[2].checked == false) {
+                loadingBar.style.cssText = `animation: progress2Backwards 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '1/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForTwoDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.innerText = 'Raise the bar by completing your goals!'
+            }
+
+            else {
+                loadingBar.style.cssText = `animation: progress3Backwards 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '2/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForTwoDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.innerText = 'Just a step away, keep going!'
+            }
+
+        }
+
+        else if (checkBox[1].checked == true) {
+
+            console.log('true')
+            textArea[1].style.cssText = `text-decoration: line-through 1px solid #48A300; color:#48A300; font-weight:500;`
+            checkBox[1].style.border = ''
+            checkBox[1].checked = true
+            loadingBarText.style.cssText = ``
+
+            if (checkBox[0].checked == true) {
+
+                if (checkBox[2].checked == true) {
+                    loadingBar.style.cssText = `animation: progress66-100 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '3/3 Completed Finished!'
+                    loadingBarText.style.cssText = `animation:text0-100ForTwoDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.innerText = 'Missions completed.'
+
+
+                }
+                else {
+                    loadingBar.style.cssText = `animation: progress33-66 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '2/3 Completed'
+                    loadingBarText.style.cssText = `animation:text0-100ForTwoDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.innerText = 'Just a step away, keep going!'
+
+                }
+            }
+            else if (checkBox[2].checked == true) {
+                loadingBar.style.cssText = `animation: progress33-66 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '2/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForTwoDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                motivationalText.innerText = 'Just a step away, keep going!'
+
+            }
+
+            else {
+                loadingBar.style.cssText = `animation: progress0-33 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '1/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForTwoDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+
+            }
+
+
+        }
+    }
+}
+)
+checkBox[2].addEventListener('click', () => {
+    if (textArea[0].style.fontWeight == '500' && textArea[1].style.fontWeight == '500' && textArea[2].style.fontWeight == '500') {
+
+        if (checkBox[2].checked == false) {
+            console.log('false')
+            textArea[2].style.cssText = `font-weight:500;`
+            checkBox[2].style.cssText = `border:3px solid #61481C;`
+            if (checkBox[0].checked == false) {
+                if (checkBox[1].checked == false) {
+                    loadingBar.style.cssText = `animation: progress1Backwards 0.4s linear 0s forwards;`
+                    loadingBarText.style.cssText = `animation:text0-100reverse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-out(false)
+
+
+                }
+                else {
+                    loadingBar.style.cssText = `animation: progress2Backwards 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '1/3 Completed'
+                    loadingBarText.style.cssText = `animation:text0-100ForThreeDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                    motivationalText.innerText = 'Raise the bar by completing your goals!'
+
+                }
+            }
+            else if (checkBox[1].checked == false) {
+                loadingBar.style.cssText = `animation: progress2Backwards 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '1/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForThreeDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.innerText = 'Raise the bar by completing your goals!'
+
+            }
+
+            else {
+                loadingBar.style.cssText = `animation: progress3Backwards 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '2/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForThreeDoneFalse 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneFalse 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(false)
+                motivationalText.innerText = 'Just a step away, keep going!'
+
+            }
+
+        }
+
+        else if (checkBox[2].checked == true) {
+            console.log('true')
+            textArea[2].style.cssText = `text-decoration: line-through 1px solid #48A300; color:#48A300; font-weight:500;`
+            checkBox[2].style.border = ''
+            checkBox[2].checked = true
+            if (checkBox[0].checked == true) {
+                if (checkBox[1].checked == true) {
+                    loadingBar.style.cssText = `animation: progress66-100 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '3/3 Completed Finished!'
+                    loadingBarText.style.cssText = `animation:text0-100ForThreeDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.innerText = 'Missions completed.'
+
+
+                }
+                else {
+                    loadingBar.style.cssText = `animation: progress33-66 0.4s linear 0s forwards;`
+                    loadingBarText.innerText = '2/3 Completed'
+                    loadingBarText.style.cssText = `animation:text0-100ForThreeDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                    motivationalText.innerText = 'Just a step away, keep going!'
+
+                }
+            }
+            else if (checkBox[1].checked == true) {
+                loadingBar.style.cssText = `animation: progress33-66 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '2/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForThreeDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                motivationalText.style.cssText = `animation:text0-100ForOneDoneTrue 0.2s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+                motivationalText.innerText = 'Just a step away, keep going!'
+
+            }
+
+            else {
+                loadingBar.style.cssText = `animation: progress0-33 0.4s linear 0s forwards;`
+                loadingBarText.innerText = '1/3 Completed'
+                loadingBarText.style.cssText = `animation:text0-100ForThreeDoneTrue 0.4s cubic-bezier(0.54, -0.03, 1, 1) 0s forwards;`//fade-in(true)
+
+            }
+
+
+        }
+    }
+}
+
+
+)
+
+
+
+
+
+
+    </script>
+<style>* {
+    font-family: 'Poppins', system-ui;
+  }
+  body {
+    background-color: #f2f8ed;
+  }
+  /* ---------------------------------------  (boxes)*/
+  .holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container {
+    width: 50vw;
+    height: auto;
+    background-color: #fbfbfb;
+    border-radius: 25px;
+    padding: 2vw 3vw;
+    text-align: center;
+  }
+  /* ------------------------------------------------(main text) */
+  .mainTextBox {
+    display: flex;
+    flex-direction: row;
+    column-gap: 6px;
+    margin: auto;
+    font-weight: 700;
+    font-size: 3vw;
+  }
+  
+  .mainColor-1 {
+    color: #48a300;
+  }
+  
+  .mainColor-2 {
+    color: #61481c;
+  }
+  /* --------------------------------------------(inside container (navigator's))*/
+  .dayNavigator {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 1vw;
+    font-size: 1.9vw;
+  }
+  
+  .progressBar {
+    height: 2vw;
+    background-color: #48a3001a;
+    border-radius: 40px;
+    position: relative;
+  }
+  .progressBarLoading {
+    position: absolute;
+    z-index: 2;
+    height: 100%;
+    background-color: #48a300;
+    border-radius: 40px;
+    width: 0%;
+  }
+  .insideLoadingText {
+    font-size: 0.66vw;
+    color: #eeffe0;
+    font-weight: 500;
+    margin-left: 3%;
+    margin-top: 1%;
+    position: absolute;
+    z-index: 3;
+  }
+  
+  @keyframes text0-100ForOneDoneTrue {
+    0% {
+      opacity: 0%;
+    }
+    10% {
+      opacity: 0%;
+    }
+    20% {
+      opacity: 0%;
+    }
+    30% {
+      opacity: 0%;
+    }
+    40% {
+      opacity: 0%;
+    }
+    50% {
+      opacity: 10%;
+    }
+    60% {
+      opacity: 30%;
+    }
+    70% {
+      opacity: 50%;
+    }
+    80% {
+      opacity: 70%;
+    }
+    90% {
+      opacity: 90%;
+    }
+    95% {
+      opacity: 95%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  @keyframes text0-100ForTwoDoneTrue {
+    0% {
+      opacity: 0%;
+    }
+    10% {
+      opacity: 0%;
+    }
+    20% {
+      opacity: 0%;
+    }
+    30% {
+      opacity: 0%;
+    }
+    40% {
+      opacity: 0%;
+    }
+    50% {
+      opacity: 10%;
+    }
+    60% {
+      opacity: 30%;
+    }
+    70% {
+      opacity: 50%;
+    }
+    80% {
+      opacity: 70%;
+    }
+    90% {
+      opacity: 90%;
+    }
+    95% {
+      opacity: 95%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  @keyframes text0-100ForThreeDoneTrue {
+    0% {
+      opacity: 0%;
+    }
+    10% {
+      opacity: 0%;
+    }
+    20% {
+      opacity: 0%;
+    }
+    30% {
+      opacity: 0%;
+    }
+    40% {
+      opacity: 0%;
+    }
+    50% {
+      opacity: 10%;
+    }
+    60% {
+      opacity: 30%;
+    }
+    70% {
+      opacity: 50%;
+    }
+    80% {
+      opacity: 70%;
+    }
+    90% {
+      opacity: 90%;
+    }
+    95% {
+      opacity: 95%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  @keyframes text0-100ForOneDoneFalse {
+    0% {
+      opacity: 0%;
+    }
+    10% {
+      opacity: 0%;
+    }
+    20% {
+      opacity: 0%;
+    }
+    30% {
+      opacity: 0%;
+    }
+    40% {
+      opacity: 0%;
+    }
+    50% {
+      opacity: 10%;
+    }
+    60% {
+      opacity: 30%;
+    }
+    70% {
+      opacity: 50%;
+    }
+    80% {
+      opacity: 70%;
+    }
+    90% {
+      opacity: 90%;
+    }
+    95% {
+      opacity: 95%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  @keyframes text0-100ForTwoDoneFalse {
+    0% {
+      opacity: 0%;
+    }
+    10% {
+      opacity: 0%;
+    }
+    20% {
+      opacity: 0%;
+    }
+    30% {
+      opacity: 0%;
+    }
+    40% {
+      opacity: 0%;
+    }
+    50% {
+      opacity: 10%;
+    }
+    60% {
+      opacity: 30%;
+    }
+    70% {
+      opacity: 50%;
+    }
+    80% {
+      opacity: 70%;
+    }
+    90% {
+      opacity: 90%;
+    }
+    95% {
+      opacity: 95%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  @keyframes text0-100ForThreeDoneFalse {
+    0% {
+      opacity: 0%;
+    }
+    10% {
+      opacity: 0%;
+    }
+    20% {
+      opacity: 0%;
+    }
+    30% {
+      opacity: 0%;
+    }
+    40% {
+      opacity: 0%;
+    }
+    50% {
+      opacity: 10%;
+    }
+    60% {
+      opacity: 30%;
+    }
+    70% {
+      opacity: 50%;
+    }
+    80% {
+      opacity: 70%;
+    }
+    90% {
+      opacity: 90%;
+    }
+    95% {
+      opacity: 95%;
+    }
+    100% {
+      opacity: 100%;
+    }
+  }
+  @keyframes text0-100reverse {
+    100% {
+      opacity: 0%;
+    }
+    90% {
+      opacity: 10%;
+    }
+    80% {
+      opacity: 20%;
+    }
+    70% {
+      opacity: 30%;
+    }
+    60% {
+      opacity: 40%;
+    }
+    50% {
+      opacity: 50%;
+    }
+    40% {
+      opacity: 60%;
+    }
+    30% {
+      opacity: 70%;
+    }
+    20% {
+      opacity: 80%;
+    }
+    10% {
+      opacity: 90%;
+    }
+    5% {
+      opacity: 95%;
+    }
+    0% {
+      opacity: 100%;
+    }
+  }
+  @keyframes progress1Backwards {
+    100% {
+      width: 0%;
+    }
+    90% {
+      width: 3%;
+    }
+    80% {
+      width: 6%;
+    }
+    70% {
+      width: 9%;
+    }
+    60% {
+      width: 12%;
+    }
+    50% {
+      width: 15%;
+    }
+    40% {
+      width: 18%;
+    }
+    30% {
+      width: 21%;
+    }
+    20% {
+      width: 24%;
+    }
+    10% {
+      width: 27%;
+    }
+    5% {
+      width: 30%;
+    }
+    0% {
+      width: 33%;
+    }
+  }
+  @keyframes progress2Backwards {
+    100% {
+      width: 33%;
+    }
+    90% {
+      width: 36%;
+    }
+    80% {
+      width: 39%;
+    }
+    70% {
+      width: 42%;
+    }
+    60% {
+      width: 45%;
+    }
+    50% {
+      width: 48%;
+    }
+    40% {
+      width: 51%;
+    }
+    30% {
+      width: 54%;
+    }
+    20% {
+      width: 57%;
+    }
+    10% {
+      width: 60%;
+    }
+    5% {
+      width: 63%;
+    }
+    0% {
+      width: 66%;
+    }
+  }
+  @keyframes progress3Backwards {
+    100% {
+      width: 66%;
+    }
+    90% {
+      width: 69%;
+    }
+    80% {
+      width: 72%;
+    }
+    70% {
+      width: 75%;
+    }
+    60% {
+      width: 78%;
+    }
+    50% {
+      width: 81%;
+    }
+    40% {
+      width: 84%;
+    }
+    30% {
+      width: 87%;
+    }
+    20% {
+      width: 90%;
+    }
+    10% {
+      width: 93%;
+    }
+    5% {
+      width: 96%;
+    }
+    0% {
+      width: 100%;
+    }
+  }
+  @keyframes progress0-33 {
+    0% {
+      width: 0%;
+    }
+    10% {
+      width: 3%;
+    }
+    20% {
+      width: 6%;
+    }
+    30% {
+      width: 9%;
+    }
+    40% {
+      width: 12%;
+    }
+    50% {
+      width: 15%;
+    }
+    60% {
+      width: 18%;
+    }
+    70% {
+      width: 21%;
+    }
+    80% {
+      width: 24%;
+    }
+    90% {
+      width: 27%;
+    }
+    95% {
+      width: 30%;
+    }
+    100% {
+      width: 33%;
+    }
+  }
+  @keyframes progress33-66 {
+    0% {
+      width: 33%;
+    }
+    10% {
+      width: 36%;
+    }
+    20% {
+      width: 39%;
+    }
+    30% {
+      width: 42%;
+    }
+    40% {
+      width: 45%;
+    }
+    50% {
+      width: 48%;
+    }
+    60% {
+      width: 51%;
+    }
+    70% {
+      width: 54%;
+    }
+    80% {
+      width: 57%;
+    }
+    90% {
+      width: 60%;
+    }
+    95% {
+      width: 63%;
+    }
+    100% {
+      width: 66%;
+    }
+  }
+  @keyframes progress66-100 {
+    0% {
+      width: 66%;
+    }
+    10% {
+      width: 69%;
+    }
+    20% {
+      width: 72%;
+    }
+    30% {
+      width: 75%;
+    }
+    40% {
+      width: 78%;
+    }
+    50% {
+      width: 81%;
+    }
+    60% {
+      width: 84%;
+    }
+    70% {
+      width: 87%;
+    }
+    80% {
+      width: 90%;
+    }
+    90% {
+      width: 93%;
+    }
+    95% {
+      width: 96%;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  .textNProgressBar {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .motivationalText {
+    color: #858585;
+    text-align: start;
+    margin-left: 2%;
+    font-size: 1.2vw;
+  }
+  .errorText {
+    color: #ff5151;
+    text-align: start;
+    margin-left: 2%;
+    font-size: 1.2vw;
+  }
+  /* --------------------------------------------(inside container (input box))*/
+  
+  .inputOfContainer {
+    border: 1px solid #e2e2e2;
+    border-radius: 1vw;
+    display: flex;
+    align-items: center;
+    column-gap: 2%;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 3%;
+    height: auto;
+    margin-bottom: 6%;
+  }
+  textarea.textarea {
+    width: 90%;
+    height: 2.5vw;
+    margin: 1.8% 2% 0% 2%;
+    resize: none;
+    outline: none;
+    border: none;
+    font-size: 1.17em;
+  }
+  
+  .textarea::-webkit-scrollbar {
+    width: 0px;
+  }
+  textarea::placeholder {
+    font-size: 1.1vw;
+    /* font-size: 16px  ; */
+    font-weight: 500;
+    color: #D9D9D9;
+  }
+  input[type='checkbox'] {
+    appearance: none;
+    box-sizing: border-box;
+    border: 2px solid #d0c8bb;
+    border-radius: 50%;
+    width: 2vw;
+    height: 2vw;
+    cursor: pointer;
+  }
+  
+  input[type='checkbox']:checked {
+    background-color: #48a300;
+    border: none;
+    background-image: url(assets/check\ .svg);
+    width: 2.01vw;
+    height: 2.01vw;
+    background-size: 68%;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  
+  .slogan {
+    font-weight: 500;
+    font-size: 1.2vw;
+  }
+  
+  .creditContainer {
+    font-size: 0.74vw;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #858585;
+    column-gap: 1%;
+  }
+  </style>
+
+</head>
+
+<body>
+    <div class="holder">
+        <div class="mainTextBox">
+            <h1 class="mainColor-1">Focus on</h1>
+            <h1 class="mainColor-2">Today</h1>
+        </div>
+        <div class="container">
+            <div class="dayNavigator">
+                <h1>Today</h1>
+                <img src="assets/sunIcon.svg" width="12%" alt="sunIcon">
+            </div>
+
+            <div class="textNProgressBar">
+                <p class="motivationalText">Raise the bar by completing your goals!</p>
+                <div class="progressBar">
+                    <div>
+                        <div class="progressBarLoading"></div>
+                        <p class="insideLoadingText"></p>
+                    </div>
+                </div>
+                <p class="errorText">Please set all the 3 goals!
+                </p>
+            </div>
+            <div class="inputOfContainer">
+                <input type="checkbox" name="" id="checkbox1" class="checkbox">
+                <textarea name="" class="textarea " id="inputBox-1" placeholder="Add a new goal..." required></textarea>
+
+            </div>
+            <div class="inputOfContainer">
+                <input type="checkbox" name="" id="checkbox2" class="checkbox">
+                <textarea name="" class="textarea " id="inputBox-2" placeholder="Add a new goal..." required></textarea>
+            </div>
+            <div class="inputOfContainer">
+                <input type="checkbox" name="" id="checkbox3" class="checkbox">
+                <textarea name="" class="textarea " id="inputBox-3" placeholder="Add a new goal..." required></textarea>
+            </div>
+            <h3 class="slogan">"Keep Going,You're Making Great Progress!"</h3>
+
+            <div class="creditContainer">
+                <p>Made With</p>
+                <p>❤️</p>
+                <p>by Anurag Singh</p>
+            </div>
+            <h6></h6>
+        </div>
+
+    </div>
+</body>
+
+</html>

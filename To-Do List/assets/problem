@@ -1,0 +1,40 @@
+deploy poppins .
+
+see how to see e object in js.
+
+add svg in the check box.
+
+add an plus svg in the adding button
+
+
+what i want :-
+i want a add new input container button
+i want a after input auto resizable text area.
+i want to make it reponsible.
+
+
+
+textLength
+value
+key(for the key that has been pressed.)
+
+maxLength
+
+------------------------
+1 par usse chalu karana hai 
+2 par usse chedhna nahi hai
+3 par usse badlna hai
+or 0 par usse khatam karna hai
+
+har bari badlna hai or har bari kaam kaarna hai
+
+
+-------------------------------
+limitation:-
+//figure out a way to let shift+enter happens
+//figure out a way of not submitting untill there is a text as of now 2 enter and it submits.
+//i cannot turn it into night mode by clicking at the sun svg.
+//cannot edit the text inside text area as of now after it is written.
+//does not have add new container button.
+//not sumitting the text when out of focused after some typing.
+//loading bar is not looking fit in the light loading bar in the beginning of the loading bar.
