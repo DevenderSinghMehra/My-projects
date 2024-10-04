@@ -1,0 +1,2 @@
+it is better to wrap img inside div  to make code controlable.
+it is better to use . in img src because that indicated go straight into that folder if it is not given there then it will look inside every folder in the root folder before reacher the given folder , so that saves us a little time.

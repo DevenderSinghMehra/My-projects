@@ -1,0 +1,258 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'poppins', sans-serif;
+  background-color: #f6f0eb;
+  box-sizing: border-box;
+}
+/* *{box-sizing: border-box;}he did it like that i wanna know why */
+header {
+  padding: 0 34px 0 24px;
+  background-color: #ffffff;
+  /* position: sticky;
+                                                          top: 0; */
+  box-shadow: 0px 1px 20px 0 #0000000a;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  max-width: 1290px;
+  margin: auto;
+}
+.logo {
+  width: 60px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+.close-icon {
+  visibility: hidden;
+  font-size: 22px;
+  font-weight: bol;
+  color: #492118;
+  cursor: pointer;
+  position: absolute;
+  top: 3px;
+  right: 10px;
+}
+a {
+  /* text-decoration: none;//we don't use it because it sets the other property to initial and sometimes we don't want that. */
+  text-decoration-line: none;
+  font-size: 20px;
+  color: #492118;
+  font-weight: 700;
+  margin-left: 40px;
+}
+/*   //by using this you can skip giving styles to the first element and give to the rest of the element.
+                                             nav a+a {
+                                            margin-left: 20px;
+                                          } */
+main {
+  padding: 0px 24px;
+}
+.hero-section {
+  margin-top: 120px;
+}
+.section {
+  margin: 150px 0px 0px 0px;
+  /* border: 3px solid black; */
+}
+
+.image-container {
+  max-width: 1040px;
+  margin: auto;
+}
+.section .image-container {
+  max-width: 790px;
+  /* margin: 0 15px; */
+}
+
+img {
+  width: 100%;
+}
+
+.image-container p,
+h1 {
+  text-align: center;
+  color: #492118;
+}
+
+.hero-section p {
+  font-size: 18px;
+  margin: 8px 0 0 0;
+}
+.section h1 {
+  font-size: 40px;
+  margin: 0px 0 34px 0px;
+}
+.footer-section {
+  /* border: 2px solid black; */
+  display: flex;
+  height: 70px;
+  flex-direction: column;
+}
+.image-container .go-to-top {
+  margin: 50px 0px;
+  text-align: end;
+  text-decoration-line: underline;
+}
+
+.image-container p:nth-child(4) {
+  font-size: 18px;
+  font-weight: 500;
+  color: #858585;
+  align-self: center;
+}
+
+@media (max-width: 1120px) {
+  main {
+    padding: 0px 22px;
+  }
+  header {
+    padding: 0 30px 0 20px;
+  }
+  .header-content {
+    height: 90px;
+  }
+  a {
+    font-size: 16px;
+    margin-left: 36px;
+  }
+  .hero-section {
+    margin-top: 110px;
+  }
+  .section {
+    margin: 130px 0px 0px 0px;
+  }
+  .logo {
+    width: 50px;
+  }
+
+  .hero-section p {
+    font-size: 14px;
+    margin: 6px 0 0 0;
+  }
+  .image-container p:nth-child(4) {
+    font-size: 14px;
+  }
+  .section h1 {
+    font-size: 34px;
+    margin: 0px 0 28px 0px;
+  }
+
+  .image-container .go-to-top {
+    margin: 40px 0px;
+  }
+}
+
+@media (max-width: 990px) {
+  main {
+    padding: 0px 20px;
+  }
+  header {
+    padding: 0 28px 0 18px;
+  }
+  .header-content {
+    height: 80px;
+  }
+
+  a {
+    font-size: 12px;
+  }
+  .hero-section {
+    margin-top: 90px;
+  }
+  .section {
+    margin: 110px 0px 0px 0px;
+  }
+  .logo {
+    width: 40px;
+  }
+  .hero-section p {
+    font-size: 10px;
+    margin: 4px 0 0 0;
+  }
+  .image-container p:nth-child(4) {
+    font-size: 10px;
+  }
+  .section h1 {
+    font-size: 32px;
+    margin: 0px 0 22px 0px;
+  }
+  .image-container .go-to-top {
+    margin: 30px 0px;
+  }
+}
+
+@media (max-width: 790px) {
+  main {
+    padding: 0px 18px;
+  }
+  header {
+    background-color: transparent;
+    box-shadow: none;
+  }
+  nav {
+    width: 50px;
+    height: 46px;
+    border-radius: 0px 0px 0px 100%;
+    position: fixed;
+    right: 6px;
+    top: 15px;
+    background: #ffffffeb;
+    backdrop-filter: blur(4px);
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out,
+      border-radius 0.2s linear;
+    box-shadow: 0px 0px 20px 0px #00000005;
+  }
+
+  .transform-nav {
+    width: 208px;
+    height: 210px;
+    border-radius: 0%;
+    justify-content: center;
+    flex-direction: column;
+    align-items: start;
+    transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+      border-radius 0.3s linear 0.2s;
+  }
+
+  .close-icon {
+    visibility: visible;
+  }
+  .close-icon-hidden {
+    visibility: hidden;
+  }
+
+  nav a {
+    margin: 0px 0px 18px 18px;
+    opacity: 100%;
+    transition: opacity 0.2s linear 0.3s;
+  }
+
+  .vis-off {
+    visibility: hidden;
+    margin: 0;
+    opacity: 0%;
+    transition: opacity 0s linear 0s;
+  }
+  .section {
+    margin: 70px 10px 0px 10px;
+  }
+  .section h1 {
+    font-size: 14px;
+    margin: 0px 0 16px 0px;
+  }
+  .image-container .go-to-top {
+    margin: 20px 0px;
+  }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Foodie Hamburger</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+    rel="stylesheet" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- using semantic tag make no difference expect for seo purposes and code readability it is just a div. -->
+  <header id="header">
+    <div class="header-content">
+      <div class="logo">
+        <img src="./image/logo.svg" alt="">
+      </div>
+      <nav>
+          <!-- ninja technique to get cross icon -->
+          <span class="close-icon">&#9776;</span>
+          <a class="vis-off" href="#top-picks">Top Picks</a>
+          <a class="vis-off" href="#whopper">Whopper</a>
+          <a class="vis-off" href="#stunner-menu">Stunner Menu</a>
+          <a class="vis-off" href="#new-foodie-collection">New Foodie Collection</a>
+          <a class="vis-off" href="#deal-of-the-day">Deal of the Day</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero-section" id="hero-image">
+      <div class="image-container">
+        <img src="./image/hero-image.png" alt="hero-image" srcset="">
+        <p>Well, You can’t resist anymore!</p>
+      </div>
+    </section>
+    <section class="section" id="top-picks">
+      <div class="image-container">
+        <h1>Top Picks</h1>
+        <img src="./image/burger-1.png" alt="burger-1" srcset="">
+      </div>
+    </section>
+    <section class="section" id="whopper">
+      <div class="image-container">
+        <h1>Whopper</h1>
+        <img src="./image/burger-2.png" alt="burger-2" srcset="">
+      </div>
+    </section>
+    <section class="section" id="stunner-menu">
+      <div class="image-container">
+        <h1>Stunner Menu</h1>
+        <img src="./image/burger-3.png" alt="burger-3" srcset="">
+      </div>
+    </section>
+    <section class="section" id="new-foodie-collection">
+      <div class="image-container">
+        <h1>New Foodie Collection</h1>
+        <img src="./image/burger-4.png" alt="burger-4" srcset="">
+      </div>
+    </section>
+    <section class="section" id="deal-of-the-day">
+      <div class="image-container">
+        <h1>Deal of the Day</h1>
+        <img src="./image/burger-5.png" alt="burger-5" srcset="">
+        <p class="go-to-top"><a href="#header">Go to Top</a></p>
+        <p class="credit">Made with ❤️ by Devender Singh</p>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
