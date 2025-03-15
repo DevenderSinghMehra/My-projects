@@ -1,0 +1,16 @@
+in the fav icon i will be putting an pickari.
+and i will be putting in enjoy in the header in middle there is no  background for that , it will going to be in middle.
+and i will be using an gif in side a div container--round borders , 
+i will keep the body background color as light gray
+and i will be using an arrow right and arrow left in order to give the user options for multiple selected gifs.
+and i will be running an background music constantly from anurag sir video on loop.
+i want my cursor to have moving color effect when it moves.
+
+
+the more effort part is to add that select your name button or else write it.
+
+
+do not forget to add alt tags.
+
+30 character is the max limit for the custom input.
+link the prompt value with local storage and have a remove or reset button for user to try a new name., maybe add a screen shot button also.

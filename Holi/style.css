@@ -1,0 +1,93 @@
+:root {
+  --Text-Color1: black;
+  --Text-Color2: white;
+  --Background-Color: hsl(0, 0%, 98%);
+  --Box-shadow1: 7px 7px 0 #000000;
+  /* --Box-shadow2: 0px 0px 12px -7px #00000042; */
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: unset;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 12px;
+}
+
+body {
+  background-color: var(--Background-Color);
+  color: var(--Text-Color2);
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+.d-flex {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 100%;
+}
+main {
+  padding: 0 0 2em 0;
+}
+.header-title {
+  width: 60%;
+  max-width: 140px;
+  margin: auto;
+  overflow: hidden;
+}
+.holi-greetings {
+  max-width: 297px;
+  height: 446.891px;
+  margin: auto;
+  border-radius: 1em;
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3em;
+  background-image: url(https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExemJibHE4cDUzN2dlaWhqcGs3YmM4bGpybmU1OHZkd2tyYmhsMjN4ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xWUiFrCVkQL18AQjyC/giphy.gif);
+  background-size: cover;
+  box-shadow: var(--Box-shadow1);
+  gap:1em;
+}
+.holi-greetings__text1 {
+  width: 100%;
+  word-wrap: break-word;
+}
+.holi-greetings__text2 {
+  font-weight: 600;
+  width: 100%;
+}
+.holi-greetings__t1-t {
+  font-size: 3em;
+  margin: 0 0 0 0.05em;
+}
+.holi-greetings__t2-t1 {
+  font-size: 2em;
+  font-family: 'poppins', sans-serif;
+  align-self: flex-start;
+  margin: 0 0 0 0.06em;
+}
+.holi-greetings__t2-t2 {
+  font-size: 9em;
+  transform: translate(0px, -12%);
+  align-self: start;
+}
+
+@media (min-width: 800px) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (max-width: 300px) {
+  .holi-greetings {
+    padding: 1em;
+  }
+}
